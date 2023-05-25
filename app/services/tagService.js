@@ -9,7 +9,6 @@ const {
   findTagByTagname
 } = require('../controllers/tag')
 
-const { validate } = require('validate');
 const { tagRule } = require('./rules');
 const { ValidationError } = require('../../utils/errors');
 

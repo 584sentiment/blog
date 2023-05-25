@@ -18,7 +18,7 @@ const tagRouter = require('./app/routes/tag');
 const classifyRouter = require('./app/routes/classify');
 // const blogRouter = require('./app/routes/blog');
 // const demoRouter = require('./app/routes/demo');
-// const friendRouter = require('./app/routes/friend');
+const friendRouter = require('./app/routes/friend');
 
 
 
@@ -56,7 +56,7 @@ router.use('/classify', classifyRouter.routes());
 router.use('/tag', tagRouter.routes());
 // router.use('/comment', userRouter.routes());
 // router.use('/demo', userRouter.routes());
-// router.use('/friend', userRouter.routes());
+router.use('/friend', friendRouter.routes());
 router.use('/captcha', captchaRouter.routes());
 
 app
