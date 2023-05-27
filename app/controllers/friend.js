@@ -1,4 +1,4 @@
-const friendModel = require('../models/friendsModel')
+const friendModel = require('../models/friendModel')
 
 const findAllFlinks = async () => {
   return await friendModel.find()

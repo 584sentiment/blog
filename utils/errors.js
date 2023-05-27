@@ -3,13 +3,15 @@
  * 当错误发生的时候，我们捕获到发生的错误，然后抛出我们自定义的错误
  */
 // 格式化要响应的数据
-exports.formatResponse = function (code, msg, data) {
+const formatResponse = function (code, msg, data) {
   return {
     code,
     msg,
     data,
   };
 };
+
+exports.formatResponse = formatResponse
 /**
  * 业务处理错误基类
  */

@@ -9,6 +9,6 @@ const classifySchema = Schema({
   versionKey: false
 });
 
-const Classify = model("Classify", classifySchema, 'classify');
+const Classify = model("Classify", classifySchema);
 
 module.exports = Classify;

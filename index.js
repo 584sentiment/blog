@@ -8,6 +8,8 @@ const session = require('koa-session');
 const logger = require("koa-logger");
 const koa_static = require('koa-static');
 
+const {ServiceError, UnknownError} = require('./utils/errors')
+
 // 默认读取项目根目录下的 .env 环境变量文件
 require('./config/init');
 
@@ -17,9 +19,8 @@ const captchaRouter = require('./app/routes/captcha');
 const tagRouter = require('./app/routes/tag');
 const classifyRouter = require('./app/routes/classify');
 // const blogRouter = require('./app/routes/blog');
-// const demoRouter = require('./app/routes/demo');
+const demoRouter = require('./app/routes/demo');
 const friendRouter = require('./app/routes/friend');
-
 
 
 
@@ -55,13 +56,23 @@ router.use('/user', userRouter.routes());
 router.use('/classify', classifyRouter.routes());
 router.use('/tag', tagRouter.routes());
 // router.use('/comment', userRouter.routes());
-// router.use('/demo', userRouter.routes());
+router.use('/demo', demoRouter.routes());
 router.use('/friend', friendRouter.routes());
 router.use('/captcha', captchaRouter.routes());
 
 app
   .use(router.routes())
   .use(router.allowedMethods());
+
+// 错误处理，一旦发生了错误，就会到这里来
+// app.use(function (ctx, next) {
+//   if (ctx.err instanceof ServiceError) {
+//     ctx.body=ctx.err.toResponseJSON();
+//   } else {
+//     ctx.body = new UnknownError().toResponseJSON();
+//     throw ctx.err;
+//   }
+// });
 
 // 全局监听异常信息
 app.on('error', err => {
