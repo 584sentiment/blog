@@ -85,12 +85,23 @@ const tagRule = new Schema({
   }
 });
 
-const commentsRule = new Schema({
+const commentRule = new Schema({
   userId: {
     required: true,
     type: String
   },
-  blogTd: {
+  blogId: {
+    required: true,
+    type: String
+  },
+  content: {
+    required: true,
+    type: String
+  },
+});
+
+const commentReplyRule = new Schema({
+  userId: {
     required: true,
     type: String
   },
@@ -150,6 +161,7 @@ module.exports = {
   classifyRule,
   demoRule,
   blogRule,
-  commentsRule,
-  friendRule
+  commentRule,
+  friendRule,
+  commentReplyRule,
 }

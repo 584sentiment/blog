@@ -7,13 +7,13 @@ const { Schema, model } = mongoose;
 const commentsSchema = new Schema({
   id: String,
   userId: { type: Schema.Types.ObjectId, ref: 'User' },
-  blogTd: { type: Schema.Types.ObjectId, ref: "Blog" },
+  blogId: { type: Schema.Types.ObjectId, ref: "Blog" },
   content: String,
-  createTime: Date,
-  replay: [{
+  createTime: String,
+  reply: [{
     userId: { type: Schema.Types.ObjectId, ref: 'User' },
     content: String,
-    createDate: Date
+    createTime: String
   }]
 },{
   versionKey: false

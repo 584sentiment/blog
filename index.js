@@ -15,7 +15,7 @@ require('./config/init');
 
 const userRouter = require('./app/routes/user');
 const captchaRouter = require('./app/routes/captcha');
-// const commentRouter = require('./app/routes/comment');
+const commentRouter = require('./app/routes/comment');
 const tagRouter = require('./app/routes/tag');
 const classifyRouter = require('./app/routes/classify');
 const blogRouter = require('./app/routes/blog');
@@ -55,7 +55,7 @@ router.use('/user', userRouter.routes());
 router.use('/blog', blogRouter.routes());
 router.use('/classify', classifyRouter.routes());
 router.use('/tag', tagRouter.routes());
-// router.use('/comment', userRouter.routes());
+router.use('/comment', commentRouter.routes());
 router.use('/demo', demoRouter.routes());
 router.use('/friend', friendRouter.routes());
 router.use('/captcha', captchaRouter.routes());
