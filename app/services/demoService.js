@@ -11,11 +11,13 @@ const { demoRule } = require('./rules')
 
 
 const addDemoService = async (demoInfo) => {
-  const errs = demoRule.validate(demoInfo)
+  const errs = await demoRule.validate(demoInfo)
   if (errs.length) {
     // console.log(errs[0].message)
     return new ValidationError('数据验证不通过')
   }
+  demoInfo.browseNum = 0
+  demoInfo.likes = 0
   return await addDemo(demoInfo)
 }
 

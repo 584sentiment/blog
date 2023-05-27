@@ -10,6 +10,7 @@ const demoSchema = new Schema({
   tagId: { type: Schema.Types.ObjectId , ref: "Tag"},
   classifyId: { type: Schema.Types.ObjectId , ref: "Classify"},
   title: String,
+  content: String,
   thumb: [String],
   desc: String,
   url: String,

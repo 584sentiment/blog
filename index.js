@@ -18,7 +18,7 @@ const captchaRouter = require('./app/routes/captcha');
 // const commentRouter = require('./app/routes/comment');
 const tagRouter = require('./app/routes/tag');
 const classifyRouter = require('./app/routes/classify');
-// const blogRouter = require('./app/routes/blog');
+const blogRouter = require('./app/routes/blog');
 const demoRouter = require('./app/routes/demo');
 const friendRouter = require('./app/routes/friend');
 
@@ -52,7 +52,7 @@ app.use(Jwt({ secret: process.env.JWT_SECRET, debug: false }).unless({ path: [/^
 const router = new Router({ prefix: '/api' });
 
 router.use('/user', userRouter.routes());
-// router.use('/blog', userRouter.routes());
+router.use('/blog', blogRouter.routes());
 router.use('/classify', classifyRouter.routes());
 router.use('/tag', tagRouter.routes());
 // router.use('/comment', userRouter.routes());

@@ -87,8 +87,8 @@ const addUserService = async (userInfo) => {
     }
     userInfo.follows = [];
     userInfo.blogs = [];
-    userInfo.createTime = Date.now();
-    userInfo.nickname = userInfo.nickname || process.env.USER_NICKNAME + userInfo.createTime.toString().split('').reverse().slice(0, 6).join('');
+    userInfo.createTime = Date.now().toString();
+    userInfo.nickname = userInfo.nickname || process.env.USER_NICKNAME + userInfo.createTime.split('').reverse().slice(0, 6).join('');
     userInfo.avatar = await randomAvatar();
     userInfo.lastLoginTime = userInfo.createTime;
     userInfo.updateTime = userInfo.createTime;

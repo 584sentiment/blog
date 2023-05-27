@@ -16,8 +16,8 @@ const blogSchema = new Schema({
   author: String,
   browseNum: Number,
   likes: Number,
-  createDate: Date,
-  updateDate: Date,
+  createDate: String,
+  updateDate: String,
   enable: {type:Boolean, default: false}
 }, {
   versionKey: false

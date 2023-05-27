@@ -21,6 +21,7 @@ const addFlinkService = async (linkInfo) => {
   if(errs.length){
     return new ValidationError(errs[0].message)
   }
+  addFlink.intro = addFlink || ''
   return await addFlink(linkInfo)
 }
 const deleteFlinkService = async (id) => {
